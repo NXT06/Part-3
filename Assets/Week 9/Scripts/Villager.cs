@@ -12,8 +12,8 @@ public class Villager : MonoBehaviour
     bool isSelected;
     public GameObject highlight;
 
-    Vector2 destination;
-    Vector2 movement;
+    protected Vector2 destination;
+     Vector2 movement;
     float speed = 3;
 
     void Start()
@@ -80,7 +80,7 @@ public class Villager : MonoBehaviour
         }
     }
 
-    void Attack()
+    protected virtual void Attack()
     {
         animator.SetTrigger("Attack");
     }
