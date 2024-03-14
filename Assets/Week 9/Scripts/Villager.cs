@@ -18,18 +18,19 @@ public class Villager : MonoBehaviour
 
     void Start()
     {
+        CharacterControl.villagertText = ("Select A Villager");
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         destination = transform.position;
         Selected(false);
     }
-    public void Selected(bool value)
+    public virtual void Selected(bool value)
     {
         isSelected = value;
         highlight.SetActive(isSelected);
     }
 
-    private void OnMouseDown()
+    public virtual void OnMouseDown()
     {
         CharacterControl.SetSelectedVillager(this);
         clickingOnSelf = true;

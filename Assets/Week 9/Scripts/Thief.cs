@@ -14,6 +14,7 @@ public class Thief : Villager
     Vector2 dash; 
     public override ChestType CanOpen()
     {
+        
         return ChestType.Thief;
     }
     protected override void Attack()
@@ -42,5 +43,10 @@ public class Thief : Villager
     {
         speed = 3;
         dashing = true;
+    }
+    public override void OnMouseDown()
+    {
+        base.OnMouseDown();
+        CharacterControl.villagertText = ("Thief");
     }
 }

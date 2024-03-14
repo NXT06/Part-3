@@ -22,6 +22,13 @@ public class Archer : Villager
 
     public override ChestType CanOpen()
     {
+        
         return ChestType.Archer; 
+        
+    }
+    public override void OnMouseDown()
+    {
+        base.OnMouseDown();
+        CharacterControl.villagertText = ("Archer");
     }
 }

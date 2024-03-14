@@ -6,6 +6,14 @@ public class Merchant : Villager
 {
     public override ChestType CanOpen()
     {
+        
         return ChestType.Merchant;
+    }
+  
+
+    public override void OnMouseDown()
+    {
+        base.OnMouseDown();
+        CharacterControl.villagertText = ("Merchant");
     }
 }
