@@ -10,7 +10,9 @@ public class Thief : Villager
     public GameObject knifePrefab; 
     public float delay1 = 0.5f;
     public float delay2 = 1.0f;
-    bool dashing; 
+    public float dashTime = 2;
+    Coroutine dashing; 
+    float dashSpeed = 7;
     Vector2 dash; 
     public override ChestType CanOpen()
     {
@@ -19,34 +21,40 @@ public class Thief : Villager
     }
     protected override void Attack()
     {
-        if (dashing)
+        if(dashing != null)
         {
-            speed = speed * 3;
-            dashing = false;
+            StopCoroutine(dashing); 
         }
-
+        dashing = StartCoroutine(Dash()); 
         
-        base.Attack();
      
         
-        Invoke("SpawnKnife", delay1);
-        Invoke("SpawnKnife", delay2);
-        Invoke("DashEnd", 0.5f); 
-        
     }
+   
 
-    void SpawnKnife()
+    IEnumerator Dash()
     {
-        Instantiate(knifePrefab, spawnPoint.position, spawnPoint.rotation); 
-    }
-    void DashEnd()
-    {
-        speed = 3;
-        dashing = true;
+        
+        speed = dashSpeed;
+        while (speed > 3)
+        {
+            yield return null;
+        }
+
+        base.Attack();
+        yield return new WaitForSeconds(0.1f);
+        SpawnKnife();
+        yield return new WaitForSeconds(0.2f);
+        SpawnKnife();
+        
     }
     public override void OnMouseDown()
     {
         base.OnMouseDown();
         CharacterControl.villagertText = ("Thief");
+    }
+    void SpawnKnife()
+    {
+        Instantiate(knifePrefab, spawnPoint.position, spawnPoint.rotation);
     }
 }
