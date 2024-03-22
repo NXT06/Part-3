@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Building : MonoBehaviour
@@ -9,42 +10,41 @@ public class Building : MonoBehaviour
     public List<GameObject> gameObjects;
     Vector3 start = new Vector3(0f, 0f, 0f);
     Vector3 end = new Vector3(1f,1f,1f);
+    float increase; 
     int num = 0;
     Coroutine building; 
-    bool isBuilding;
-    float increase = 0.1f;
+    bool isBuilding = true;
+    float timer = 0; 
     void Start()
     {
-        isBuilding = true;
-        if (isBuilding == false)
-        {
-            StopCoroutine(BuildTime());
-        }
         StartCoroutine(BuildTime());
     }
 
     IEnumerator BuildTime()
     {
-        
-
-        
-        Constructing();
 
         yield return new WaitForSeconds(2f);
+        increase = 0f;
         num++;
-        Constructing();
+  
+
 
         yield return new WaitForSeconds(2f);
+        increase = 0f;
         num++;
-        Constructing();
+    
+
 
         yield return new WaitForSeconds(2f);
+        increase = 0f;
         num++;
-        Constructing();
+  
+
 
         yield return new WaitForSeconds(2f);
+        increase = 0f;
         num++;
-        Constructing();
+
 
 
         
@@ -56,19 +56,20 @@ public class Building : MonoBehaviour
 
 
     }
-    void Constructing()
+
+
+    private void Update()
     {
-      
-        while (gameObjects[num].transform.localScale.x < 1)
+        if (isBuilding)
         {
-         
-            
-            //gameObjects[num].transform.localScale += increase; 
-            
             gameObjects[num].transform.localScale = Vector3.Lerp(start, end, increase);
-            
+
+            if (gameObjects[num].transform.localScale.x < 1)
+            {
+                increase += Time.deltaTime; 
+                Debug.Log(increase);
+            }
+           
         }
-        
-        
     }
 }

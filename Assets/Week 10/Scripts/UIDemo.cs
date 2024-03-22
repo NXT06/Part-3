@@ -15,11 +15,12 @@ public class UIDemo : MonoBehaviour
     public void SliderValueHasChanged(Single value)
     {
         interpolation = value;
+       
     }
 
     public void DropdownHasChanged(int value)
     {
-        Debug.Log(dropdown.options[value].text); 
+      Debug.Log(dropdown.options[value].text); 
     }
 
     private void Update()
