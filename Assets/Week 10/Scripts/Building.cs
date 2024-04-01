@@ -14,7 +14,7 @@ public class Building : MonoBehaviour
     int num = 0;
     Coroutine building; 
     bool isBuilding = true;
-    float timer = 0; 
+
     void Start()
     {
         StartCoroutine(BuildTime());
