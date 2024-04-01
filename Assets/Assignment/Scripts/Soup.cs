@@ -23,7 +23,7 @@ public class Soup : MonoBehaviour
         order = GameManager.ordersServed;
         startPos = transform.position;
         secondPos = transform.position;
-        secondPos.x = transform.position.x + 11;
+        secondPos.x = transform.position.x + 10;
         thirdPos = secondPos;
 
         thirdPos.y = secondPos.y + 10; 

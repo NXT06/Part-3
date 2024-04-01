@@ -1,13 +1,18 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
-    float ingredients;
-    public static float score;
+    float timer; 
+    
+    public static int score;
+    public Slider clock;
+    public Image clockImage; 
     public Transform pos; 
     public static int customerCount;
     public GameObject Soup; 
@@ -15,14 +20,19 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI ordersServedText; 
     public List<GameObject> customers;
     public static int ordersServed;
-    public static int ordersFailed; 
+    public static int ordersFailed;
+    PlayerPrefs currentScore; 
+
     private void Start()
     {
+        timer = 60;
+        clock.maxValue = timer; 
         customerCount = 0; 
         score = 200; 
     }
     private void Update()
     {
+        GameTimer(); 
         score = Mathf.Clamp(score, 0, 10000); 
         scoreText.text = ("$" + score.ToString());
         ordersServedText.text = (ordersServed.ToString());
@@ -46,9 +56,38 @@ public class GameManager : MonoBehaviour
        
     }
 
-    
-    
+    public void GameTimer()
+    {
 
-    
+        timer -= Time.deltaTime;
+        clock.value = Mathf.Round(timer); 
+        if (timer < 10)
+        {
+            clockImage.color = Color.red; 
+        }
+        if (timer < 1)
+        {
+            LoadNextScene();
+        }
+    }
 
-}
+    public void LoadNextScene()  //loading next scene script
+    {
+        PlayerPrefs.SetInt("currentScore", score);
+        Highscore(); 
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = (currentSceneIndex + 1) % SceneManager.sceneCountInBuildSettings;
+        SceneManager.LoadScene(nextSceneIndex);
+        Debug.Log("load"); 
+    }
+
+    public void Highscore()
+    {
+        PlayerPrefs.GetInt("HighScore");
+        
+        if (PlayerPrefs.GetInt("currentScore") > PlayerPrefs.GetInt("HighScore"))
+        {
+            PlayerPrefs.SetInt("HighScore", PlayerPrefs.GetInt("currentScore")); 
+        }
+    }
+    }
