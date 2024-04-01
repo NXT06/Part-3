@@ -45,6 +45,7 @@ public class Recipes : MonoBehaviour
                 GameManager.ordersServed++;
                 GameManager.customerCount--;
                 Ingredients.Reset();
+                
                 customerSelected.gameObject.SetActive(false);
             }
           

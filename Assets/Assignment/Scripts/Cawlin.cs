@@ -11,7 +11,7 @@ public class Cawlin : Customers
         if (patience <= 0)
         {
 
-
+            GameManager.ordersFailed++; 
             GameManager.customerCount--;
             GameManager.score = GameManager.score - 75;
             Ingredients.Reset();

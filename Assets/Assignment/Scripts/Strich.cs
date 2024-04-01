@@ -10,7 +10,7 @@ public class Strich : Customers
         if (patience <= 0)
         {
 
-
+            GameManager.ordersFailed++;
             GameManager.customerCount--;
             GameManager.score = GameManager.score - 50;
             Ingredients.Reset();

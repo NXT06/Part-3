@@ -14,7 +14,7 @@ public class Groose : Customers
         if (patience <= 0)
         {
 
-
+            GameManager.ordersFailed++;
             GameManager.customerCount--;
             GameManager.score = GameManager.score - 100;
             Ingredients.Reset();
