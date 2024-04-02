@@ -8,8 +8,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
-    float timer; 
-    
+    public static float timer;
+    public static int scoreColor; 
     public static int score;
     public Slider clock;
     public Image clockImage; 
@@ -28,16 +28,22 @@ public class GameManager : MonoBehaviour
         timer = 60;
         clock.maxValue = timer; 
         customerCount = 0; 
-        score = 200; 
+        score = 0;
+        ordersServed = 0;
+        ordersFailed = 0;
     }
     private void Update()
     {
         GameTimer(); 
         score = Mathf.Clamp(score, 0, 10000); 
-        scoreText.text = ("$" + score.ToString());
+        scoreText.text = (score.ToString());
         ordersServedText.text = (ordersServed.ToString());
         SpawnCustomer(); 
         Debug.Log(customerCount);
+        if (scoreColor != 0)
+        {
+            StartCoroutine(ScoreIndicator()); 
+        }
     }
     public void SpawnCustomer()
     {
@@ -88,6 +94,25 @@ public class GameManager : MonoBehaviour
         if (PlayerPrefs.GetInt("currentScore") > PlayerPrefs.GetInt("HighScore"))
         {
             PlayerPrefs.SetInt("HighScore", PlayerPrefs.GetInt("currentScore")); 
+        }
+    }
+
+    public IEnumerator ScoreIndicator()
+    {
+        if (scoreColor == 1)
+        {
+            scoreText.color = Color.red;
+            yield return new WaitForSeconds(1);
+            scoreText.color = Color.white;
+            scoreColor = 0; 
+        }
+        if (scoreColor == 2)
+        {
+            scoreText.color = Color.green;
+            yield return new WaitForSeconds(1);
+            scoreText.color = Color.white;
+            scoreColor = 0;
+
         }
     }
     }

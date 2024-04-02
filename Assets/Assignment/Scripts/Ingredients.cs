@@ -6,11 +6,13 @@ using UnityEngine;
 public class Ingredients : MonoBehaviour
 {
     public List<TextMeshProUGUI> counts; 
-    public List<GameObject> Soups;
+    public List<GameObject> ingredients;
     public static float pumpkin;
     public static float onion;
     public static float salt;
-
+    public Transform saltSpawn;
+    public Transform onionSpawn;
+    public Transform pumpkinSpawn; 
     private void Start()
     {
         pumpkin = 0;
@@ -33,19 +35,19 @@ public class Ingredients : MonoBehaviour
     public void Pumpkin()
     {
         pumpkin++;
-        
+        Instantiate(ingredients[1], pumpkinSpawn.position, pumpkinSpawn.rotation); 
     }
 
     public void Onion()
     {
         onion++;
-        
+        Instantiate(ingredients[2], onionSpawn.position, onionSpawn.rotation);
     }
 
     public void Salt()
     {
         salt++;
-        
+        Instantiate(ingredients[0], saltSpawn.position, saltSpawn.rotation);    
     }
 
     public static void Reset()

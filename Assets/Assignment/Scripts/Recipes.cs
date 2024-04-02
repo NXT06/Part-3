@@ -41,6 +41,7 @@ public class Recipes : MonoBehaviour
         {
             if (Input.GetMouseButtonUp(1)) 
             {
+                GameManager.scoreColor = 2; 
                 GameManager.score += points;
                 GameManager.ordersServed++;
                 GameManager.customerCount--;

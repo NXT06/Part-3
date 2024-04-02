@@ -28,7 +28,7 @@ public class Customers : MonoBehaviour
     protected virtual void Timer()
     {
         customer = true;
-        float maxTime = 5;
+        float maxTime = 3;
         patience = maxTime; 
         patienceMeter.maxValue = maxTime;
         
