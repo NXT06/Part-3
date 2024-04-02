@@ -8,14 +8,15 @@ public class EndGameManager : MonoBehaviour
 {
 
     public TextMeshProUGUI score;
-    public TextMeshProUGUI highScore; 
+    public TextMeshProUGUI highScore;
+    public TextMeshProUGUI served; 
 
     // Start is called before the first frame update
     void Start()
     {
         score.text = ("Your Score: " + PlayerPrefs.GetInt("currentScore").ToString());
         highScore.text = ("High Score: " + PlayerPrefs.GetInt("HighScore").ToString());
-
+        served.text = ("Orders Served: " + PlayerPrefs.GetInt("served").ToString()) ;
     }
 
     public void LoadNextScene()  //loading next scene script

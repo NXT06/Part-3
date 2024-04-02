@@ -875,7 +875,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.23529412, g: 0.17254902, b: 0.105882354, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1563,7 +1563,7 @@ MonoBehaviour:
   clock: {fileID: 1599256544}
   clockImage: {fileID: 1180959792}
   pos: {fileID: 1988285736}
-  Soup: {fileID: 183988907548682655, guid: 7be60b7059f14ea4b8694eaaf5325206, type: 3}
+  Soup: {fileID: 3444871297780506303, guid: 7be60b7059f14ea4b8694eaaf5325206, type: 3}
   scoreText: {fileID: 506262598}
   ordersServedText: {fileID: 859328559}
   customers:
@@ -1606,8 +1606,8 @@ MonoBehaviour:
   - {fileID: 8922964401359657367, guid: f3ffef6435c374f4c87cb5a945e892b0, type: 3}
   - {fileID: 7861586649866931190, guid: a753228ba914c9f4e9ade19c1c506ae6, type: 3}
   saltSpawn: {fileID: 6918185326322260380}
-  onionSpawn: {fileID: 2534121384713610350}
-  pumpkinSpawn: {fileID: 2019463947400276105}
+  onionSpawn: {fileID: 6918185326322260380}
+  pumpkinSpawn: {fileID: 6918185326322260380}
 --- !u!1 &641000398
 GameObject:
   m_ObjectHideFlags: 0
@@ -4330,69 +4330,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6918185326322260380}
   m_Layer: 0
-  m_Name: Salt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2019463947400276105
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5880837864862769775}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.91, y: -2.01, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &2534121384713610350
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5392797408752448729}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.95, y: -1.85, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &5392797408752448729
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2534121384713610350}
-  m_Layer: 0
-  m_Name: Onion
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &5880837864862769775
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2019463947400276105}
-  m_Layer: 0
-  m_Name: Pumpkin
+  m_Name: spawnLocation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4407,7 +4345,7 @@ Transform:
   m_GameObject: {fileID: 1472848793907220932}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.31, y: -1.85, z: 0}
+  m_LocalPosition: {x: -3.89, y: 3.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4423,5 +4361,3 @@ SceneRoots:
   - {fileID: 616104074}
   - {fileID: 1988285736}
   - {fileID: 6918185326322260380}
-  - {fileID: 2019463947400276105}
-  - {fileID: 2534121384713610350}

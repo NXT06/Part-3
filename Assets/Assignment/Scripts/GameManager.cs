@@ -79,6 +79,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadNextScene()  //loading next scene script
     {
+        PlayerPrefs.SetInt("served", ordersServed); 
         PlayerPrefs.SetInt("currentScore", score);
         Highscore(); 
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;

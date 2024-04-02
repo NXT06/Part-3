@@ -29,7 +29,7 @@ public class IngredientSpawner : MonoBehaviour
 
     IEnumerator Destroy()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0.6f);
         Destroy(gameObject);
 
 
