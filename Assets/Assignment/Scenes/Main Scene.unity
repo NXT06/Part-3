@@ -1869,7 +1869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patienceMeter: {fileID: 358076613}
-  StrichScore: 25
+  StrichScore: 35
 --- !u!114 &756156004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3104,7 +3104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patienceMeter: {fileID: 1448029556}
-  CawlinScore: 50
+  CawlinScore: 75
 --- !u!114 &1474596585
 MonoBehaviour:
   m_ObjectHideFlags: 0
