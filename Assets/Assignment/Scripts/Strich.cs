@@ -13,9 +13,9 @@ public class Strich : Customers
             GameManager.scoreColor = 1;
             GameManager.ordersFailed++;
             GameManager.customerCount--;
-            GameManager.score = GameManager.score - StrichScore;
+            GameManager.score = GameManager.score - StrichScore;  //subtracting score by Strich's point value 
             Ingredients.Reset();
-            this.gameObject.SetActive(false);
+            this.gameObject.SetActive(false);   //turning customer off 
         }
     }
 

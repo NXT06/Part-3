@@ -16,7 +16,6 @@ public class Recipes : MonoBehaviour
     public static Customers customerSelected { get; private set; }
 
 
-    // Update is called once per frame
     void Update()
     {
         Recipe(); 
@@ -25,19 +24,19 @@ public class Recipes : MonoBehaviour
     }
 
 
-    public static void GetCustomer(Customers customer)
+    public static void GetCustomer(Customers customer)   //recieves instance of class from customer script
     {
         if (customerSelected != null)
         {
             customerSelected.Ordering(false);
         }
-        customerSelected = customer;
-        customerSelected.Ordering(true);    
+        customerSelected = customer;                //sets current instance to gameObject 
+        customerSelected.Ordering(true);            //sets ordering to true, displaying the current recipe 
     }
     protected virtual void Recipe()
     {
         
-        if (Ingredients.salt == numOfSalt && Ingredients.pumpkin == numOfPumpkin && Ingredients.onion == numOfOnions)
+        if (Ingredients.salt == numOfSalt && Ingredients.pumpkin == numOfPumpkin && Ingredients.onion == numOfOnions)      //if ingredient values are equal to recipe values, complete order
         {
             if (Input.GetMouseButtonUp(1)) 
             {
@@ -47,14 +46,14 @@ public class Recipes : MonoBehaviour
                 GameManager.customerCount--;
                 Ingredients.Reset();
                 
-                customerSelected.gameObject.SetActive(false);
+                customerSelected.gameObject.SetActive(false);       //set the current customer to false 
             }
           
         }
 
 
     }
-    public void DisplayRecipe()
+    public void DisplayRecipe()         //displaying numbers of ingredients in recipe
     {
         numOfIngredients[2].text = numOfPumpkin.ToString();
         numOfIngredients[1].text = numOfOnions.ToString();

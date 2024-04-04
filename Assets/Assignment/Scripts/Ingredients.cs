@@ -15,42 +15,42 @@ public class Ingredients : MonoBehaviour
     public Transform pumpkinSpawn; 
     private void Start()
     {
-        pumpkin = 0;
+        pumpkin = 0;        //setting all values to 0
         onion = 0;
         salt = 0;
     }
     private void Update()
     {
-        if (pumpkin == 10 || onion == 10 || salt == 10)
+        if (pumpkin == 10 || onion == 10 || salt == 10) //if player reaches 10 of any ingredient, resets them all to 0 
         {
             Reset();
         }
 
-        counts[0].text = ("x" + pumpkin.ToString());
+        counts[0].text = ("x" + pumpkin.ToString());        //displaying ingredients needed for recipe
         counts[1].text = ("x" + onion.ToString());
         counts[2].text = ("x" + salt.ToString());
     }
 
     
-    public void Pumpkin()
+    public void Pumpkin()  //increasing pumpkin count and instantiating pumpkin ingredient above soup when button pressed
     {
-        pumpkin++;
+        pumpkin++;              
         Instantiate(ingredients[1], pumpkinSpawn.position, pumpkinSpawn.rotation); 
     }
 
-    public void Onion()
+    public void Onion()//increasing onion count and instantiating onion ingredient above soup when button pressed
     {
         onion++;
         Instantiate(ingredients[2], onionSpawn.position, onionSpawn.rotation);
     }
 
-    public void Salt()
+    public void Salt()//increasing salt count and instantiating salt ingredient above soup when button pressed
     {
         salt++;
         Instantiate(ingredients[0], saltSpawn.position, saltSpawn.rotation);    
     }
 
-    public static void Reset()
+    public static void Reset()      //creating a reset button that assigns all ingredients to 0 when pressed
     {
         pumpkin = 0;
         onion = 0;

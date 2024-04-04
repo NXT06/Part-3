@@ -12,20 +12,20 @@ public class Customers : MonoBehaviour
     public static bool customer;
     
     bool isOrdering; 
-    private void OnEnable()
+    private void OnEnable()   //when gameObject is to true from false state, start function
     {
-        Timer();
-        Recipes.GetCustomer(this); 
+        Timer();    
+        Recipes.GetCustomer(this);  //Sending instance of customer to recipe scripts so they know what to display
     }
-    protected virtual void Patience()
+    protected virtual void Patience()  //patience meter decreases each second
     {
         
-        patienceMeter.value = patience;
+        patienceMeter.value = patience; //setting slider to patience value
             patience -= Time.deltaTime;
              
 
     }
-    protected virtual void Timer()
+    protected virtual void Timer()    //setting max patience timer band slider value
     {
         customer = true;
         float maxTime = 3;
@@ -33,7 +33,7 @@ public class Customers : MonoBehaviour
         patienceMeter.maxValue = maxTime;
         
     }
-    public virtual void Ordering(bool orderer)
+    public virtual void Ordering(bool orderer)   //setting ordering to true or false when called from other scripts 
     {
         isOrdering = orderer;       
     }

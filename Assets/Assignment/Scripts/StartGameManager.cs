@@ -9,8 +9,8 @@ public class StartGameManager : MonoBehaviour
     
     public TextMeshProUGUI highScore;
 
-    // Start is called before the first frame update
-    void Start()
+
+    void Start()  //diplaying highscore in UI
     {
       
         highScore.text = ("High Score: " + PlayerPrefs.GetInt("HighScore").ToString());
@@ -22,6 +22,5 @@ public class StartGameManager : MonoBehaviour
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = (currentSceneIndex + 1) % SceneManager.sceneCountInBuildSettings;
         SceneManager.LoadScene(nextSceneIndex);
-        Debug.Log("load");
     }
 }

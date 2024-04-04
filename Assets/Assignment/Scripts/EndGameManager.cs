@@ -12,7 +12,7 @@ public class EndGameManager : MonoBehaviour
     public TextMeshProUGUI served; 
 
     // Start is called before the first frame update
-    void Start()
+    void Start()        //display previous attempt score and highscore 
     {
         score.text = ("Your Score: " + PlayerPrefs.GetInt("currentScore").ToString());
         highScore.text = ("High Score: " + PlayerPrefs.GetInt("HighScore").ToString());
@@ -24,6 +24,5 @@ public class EndGameManager : MonoBehaviour
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = (currentSceneIndex + 1) % SceneManager.sceneCountInBuildSettings;
         SceneManager.LoadScene(nextSceneIndex);
-        Debug.Log("load");
     }
 }

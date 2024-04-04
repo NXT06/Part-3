@@ -9,27 +9,27 @@ public class IngredientSpawner : MonoBehaviour
     Vector3 spawn;
     Vector3 end;
     public AnimationCurve interpolation;
-    // Start is called before the first frame update
+
     void Start()
     {
-        spawn = transform.position;
+        spawn = transform.position;     //assigning spawn point to whereever the ingredient was instatiated 
         end = spawn;
-        end.y = spawn.y - 10;
+        end.y = spawn.y - 10;       //assigning end position to where soup is (going into the soup)
          
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         lerpTimer += Time.deltaTime;
-        speed = interpolation.Evaluate(lerpTimer);
-        transform.position = Vector3.Lerp(spawn, end, speed);
-        StartCoroutine(Destroy());
+        speed = interpolation.Evaluate(lerpTimer);              //using animation curve 
+        transform.position = Vector3.Lerp(spawn, end, speed);       //using lerp to create velocity as it falls into the soup 
+        StartCoroutine(Destroy());              
     }
 
     IEnumerator Destroy()
     {
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.6f);  //destroying ingredients when the reach the pot of soup 
         Destroy(gameObject);
 
 

@@ -20,7 +20,7 @@ public class Soup : MonoBehaviour
     void Start()
     {
         fail = GameManager.ordersFailed; 
-        order = GameManager.ordersServed;
+        order = GameManager.ordersServed;  //setting the current order number at start
         startPos = transform.position;
         secondPos = transform.position;
         secondPos.x = transform.position.x + 10;
@@ -33,14 +33,14 @@ public class Soup : MonoBehaviour
     void FixedUpdate()
     {
         
-        if (order == GameManager.ordersServed)
+        if (order == GameManager.ordersServed)  //spawning new soup in each time the customer count increases
         {
             lerpTimer += Time.deltaTime;
-            speed = interpolation.Evaluate(lerpTimer);
-            transform.position = Vector3.Lerp(startPos, secondPos, speed);
+            speed = interpolation.Evaluate(lerpTimer);      //using animation curves to set lerp value 
+            transform.position = Vector3.Lerp(startPos, secondPos, speed);      //using lerp to mimic a sliding action of the soup 
             
         }
-        if (order < GameManager.ordersServed || fail < GameManager.ordersFailed)
+        if (order < GameManager.ordersServed || fail < GameManager.ordersFailed)    //if order count is less than updated oder count, push soup off-screen and destroy gameObject
         {
             
             lerpTimer2 += Time.deltaTime;
@@ -51,7 +51,7 @@ public class Soup : MonoBehaviour
     }
 
 
-   IEnumerator Destroy()
+   IEnumerator Destroy()  //destroying soup after it goes off-screen 
     {
 
         yield return new WaitForSeconds(1f);
